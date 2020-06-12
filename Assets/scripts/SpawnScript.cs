@@ -7,7 +7,8 @@ public class SpawnScript : MonoBehaviour
     public GameObject OldMan;
 
     // Variável para conhecer quão rápido nós devemos criar novos Asteroides
-    public float spawnTime =7;
+    public float spawnTime = 7;
+    
     void Start()
     {        
         // Chamar a função 'addEnemy' a cada 'spawnTime' segundos
@@ -16,9 +17,17 @@ public class SpawnScript : MonoBehaviour
 
     void addEnemy()
     {
-        // Aleatoriamente escolhe um ponto dentro do objeto spawn
-        var spawnPoint = new Vector2(-5.8f, Random.Range(-4.83f, -3.21f));
-        // Criar um Asteroide na posição 'spawnPoint'
+        float posX;
+        float alternatives = Random.Range(0.0f, 0.9f);
+        //determina se o velho vai nascer na esquerda ou na direita
+        if (alternatives < 0.5f){
+            posX = -5.8f;
+        }else{
+            posX = 5.8f;
+        }
+        // Aleatoriamente escolhe um ponto da calçada
+        var spawnPoint = new Vector2(posX, Random.Range(-4.83f, -3.21f));
+        // Criar o velhote 
         Instantiate(OldMan, spawnPoint, Quaternion.identity);
 
     }
