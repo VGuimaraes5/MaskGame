@@ -557,4 +557,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mask: {fileID: 3787907235583348350, guid: 3bb048125ddec09459beb6d4f9c4d3f6, type: 3}
-  speed: 2
+  speed: 5
