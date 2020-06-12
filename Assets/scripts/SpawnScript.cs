@@ -6,7 +6,7 @@ public class SpawnScript : MonoBehaviour
 {
     public GameObject OldMan;
 
-    // Variável para conhecer quão rápido nós devemos criar novos Asteroides
+    // Determina tempo de spawn dos alvos
     public float spawnTime = 7;
     
     void Start()
@@ -17,17 +17,18 @@ public class SpawnScript : MonoBehaviour
 
     void addEnemy()
     {
-        float posX;
-        float alternatives = Random.Range(0.0f, 0.9f);
-        //determina se o velho vai nascer na esquerda ou na direita
+        float spawnX;
+        float alternatives = Random.Range(0.0f, 1.0f);
+        //determina se OldMan ira spawnar na esquerda ou na direita
         if (alternatives < 0.5f){
-            posX = -5.8f;
+            spawnX = -5.8f;
         }else{
-            posX = 5.8f;
+            spawnX = 5.8f;
         }
-        // Aleatoriamente escolhe um ponto da calçada
-        var spawnPoint = new Vector2(posX, Random.Range(-4.83f, -3.21f));
-        // Criar o velhote 
+
+        // Aleatoriamente escolhe um ponto da calçada 
+        var spawnPoint = new Vector2(spawnX, Random.Range(-4.83f, -3.21f));
+        // Instancia um novo OldMan na scene
         Instantiate(OldMan, spawnPoint, Quaternion.identity);
 
     }

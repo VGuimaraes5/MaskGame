@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 140221095}
   - component: {fileID: 140221094}
   m_Layer: 0
-  m_Name: Sacada
+  m_Name: balcony
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 250823536}
   - component: {fileID: 250823535}
   m_Layer: 0
-  m_Name: Teste
+  m_Name: spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 273533682}
   - component: {fileID: 273533681}
   m_Layer: 0
-  m_Name: BackGroud2.0
+  m_Name: backgroud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 1138410139}
   - component: {fileID: 1138410141}
   m_Layer: 0
-  m_Name: Personagem
+  m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
