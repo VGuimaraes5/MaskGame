@@ -6,19 +6,21 @@ using UnityEngine.UI;
 public class OldMan : MonoBehaviour
 {
 
-    public float speed = 0.005f;
+    public float speed = 3;
     private Animator animator;
     private bool verificaMascara = false;
     // Start is called before the first frame update
     void Start()
     {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector2(speed, 0);
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(+speed, 0, 0);
+        //transform.Translate(+speed, 0, 0);
 
         if (transform.position.x <= -5.8f || transform.position.x >= 6.3f)
         {

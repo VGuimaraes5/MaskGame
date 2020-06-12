@@ -6,7 +6,7 @@ public class SpawnScript : MonoBehaviour
 {
     public GameObject OldMan;
 
-    // Variável para conhecer quão rápido nós devemos criar novos Asteroides
+    // Define velocidade de spawn de alvos
     public float spawnTime =7;
     void Start()
     {        
@@ -18,7 +18,7 @@ public class SpawnScript : MonoBehaviour
     {
         // Aleatoriamente escolhe um ponto dentro do objeto spawn
         var spawnPoint = new Vector2(-5.8f, Random.Range(-4.83f, -3.21f));
-        // Criar um Asteroide na posição 'spawnPoint'
+        // Criar um alvo na posição 'spawnPoint'
         Instantiate(OldMan, spawnPoint, Quaternion.identity);
 
     }
