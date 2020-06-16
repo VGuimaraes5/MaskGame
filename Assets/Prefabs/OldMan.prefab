@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -811526922304299117}
   m_Layer: 0
   m_Name: OldMan
-  m_TagString: Untagged
+  m_TagString: OldManTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,5 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b68a0fe2ed2e84c850b662bd374f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StatusMask: {fileID: 3787907235583348350, guid: 3bb048125ddec09459beb6d4f9c4d3f6,
+    type: 3}
   speed: 3
   usingMask: 0

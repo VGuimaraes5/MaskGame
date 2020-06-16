@@ -8,11 +8,15 @@ using UnityEngine;
 public class MaskScript : MonoBehaviour
 {
     // Ajuste da velocidade em que a mascara cai
-    public float speed = -10.0f; 
+    SpriteRenderer mt;
+    public float velocidade = 0.5f;
+    public float speed = -10.0f;
+    public bool contaminated = false;
 
     void Start()
     {
         adjustVelocity(0, speed);
+        mt = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -28,10 +32,15 @@ public class MaskScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {   
-        // casso a colisao com um alvo aconteça a mascara eh destruida
-        if (collision.gameObject.name == "OldMan(Clone)")
+        // caso a colisao com um alvo aconteça a mascara eh destruida
+        if (collision.gameObject.tag == "OldManTag")
         {
             Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "CoronaTag")
+        {
+            mt.color = Color.green;
+            contaminated = true;
         }
     }
 

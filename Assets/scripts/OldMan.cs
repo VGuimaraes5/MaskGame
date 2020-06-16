@@ -6,14 +6,17 @@ using UnityEngine.UI;
 public class OldMan : MonoBehaviour
 {
     public float speed = 3.0f;
-    
+    private SpriteRenderer maskEfect;
     private Animator animator;
     public bool usingMask = false;
 
 
+
     void Start()
     { 
+        maskEfect = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+       
         adjustMovement();        
     }
 
@@ -38,8 +41,20 @@ public class OldMan : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Verifica a colisao entre mascara e OldMan
-        if (collision.gameObject.name == "Mask(Clone)" && usingMask == false)
+
+        if (collision.gameObject.tag == "MaskTag" && collision.gameObject.GetComponent<MaskScript>().contaminated == true && usingMask == false)
         {
+            maskEfect.color = Color.red;
+            Invoke("NormalColor", 0.5f);
+            animator.SetBool("Mask", true);
+
+            usingMask = true;
+        }
+
+        if (collision.gameObject.tag == "MaskTag" && collision.gameObject.GetComponent<MaskScript>().contaminated == false && usingMask == false)
+        {
+            maskEfect.color = Color.cyan;
+            Invoke("NormalColor", 0.5f);
             // Alterna a condição para troca das sprites de animação para a que OldMan esta vestindo mascara
             animator.SetBool("Mask", true);
             // Identifica que esse objeto já foi atingido para que seja destruido quando sair de cena 
@@ -47,7 +62,10 @@ public class OldMan : MonoBehaviour
         }
     }
 
-
+    private void NormalColor()
+    {
+        maskEfect.color = Color.white;
+    }
     private void adjustMovement()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
