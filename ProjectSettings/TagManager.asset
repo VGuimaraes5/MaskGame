@@ -7,6 +7,7 @@ TagManager:
   - OldManTag
   - CoronaTag
   - MaskTag
+  - YoungTag
   layers:
   - Default
   - TransparentFX

@@ -9,13 +9,14 @@ public class MaskScript : MonoBehaviour
 {
     // Ajuste da velocidade em que a mascara cai
     SpriteRenderer mt;
-    public float velocidade = 0.5f;
     public float speed = -10.0f;
+    public Animator animator;
     public bool contaminated = false;
 
     void Start()
     {
         adjustVelocity(0, speed);
+        animator = GetComponent<Animator>();
         mt = GetComponent<SpriteRenderer>();
     }
 
@@ -25,7 +26,7 @@ public class MaskScript : MonoBehaviour
         if (transform.position.y <= -5.0f)
         {
             adjustVelocity(0, 0);
-            
+            animator.SetBool("MaskStop", true);
             Destroy(gameObject, 2.0f);
         }
     }
@@ -33,7 +34,7 @@ public class MaskScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {   
         // caso a colisao com um alvo aconteça a mascara eh destruida
-        if (collision.gameObject.tag == "OldManTag")
+        if (collision.gameObject.tag == "OldManTag" || collision.gameObject.tag == "YoungTag")
         {
             Destroy(gameObject);
         }

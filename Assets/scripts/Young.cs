@@ -1,37 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class OldMan : MonoBehaviour
+public class Young : MonoBehaviour
 {
-    public float speed = 2.0f;
+    public float speed = 4.0f;
     private SpriteRenderer maskEfect;
     private Animator animator;
     public bool usingMask = false;
-
-
-
+    public float CharacterSelec = -1;
+    
     void Start()
-    { 
-        maskEfect = GetComponent<SpriteRenderer>();
+    {
+        
         animator = GetComponent<Animator>();
-
-       
-        adjustMovement();        
+        selectSkin();
+        maskEfect = GetComponent<SpriteRenderer>();
+        adjustMovement();
     }
 
-
+    // Update is called once per frame
     void Update()
-    {
+    {   
+        
         // Limitando o personagem a tela
         returnToScreen();
     }
 
+    void selectSkin()
+    {
+        CharacterSelec = Random.Range(0.0f, 1.0f);
+
+        animator.SetFloat("SelectCharacter", CharacterSelec);
+    }
 
     void OnBecameInvisible()
     {
-        // Verifica se OldMan foi atingido por uma mascara e o destroi
+        // Verifica se o personagem foi atingido por uma mascara e o destroi
         if (usingMask == true)
         {
             Destroy(gameObject);
@@ -73,7 +78,7 @@ public class OldMan : MonoBehaviour
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
-        //Verifica de qual lado o OldMan foi espawnado direita/esquerda
+        //Verifica de qual lado o Personagem foi espawnado direita/esquerda
         if (transform.position.x == 5.8f)
         {
             // Caso o spawn seja na direita, rotaciona a sprite 180º em Y e inverte velocidade para movimentar para a esquerda
@@ -90,7 +95,7 @@ public class OldMan : MonoBehaviour
 
     private void returnToScreen()
     {
-        // caso ainda não tenha sido atingido por uma mascara OldMan retorna a tela em loop infinito
+        // caso ainda não tenha sido atingido por uma mascara o personagem retorna a tela em loop infinito
         if (transform.position.x <= -6.3f || transform.position.x >= 6.3f)
         {
             float xPos = Mathf.Clamp(transform.position.x, 6.3f, -6.3f);
@@ -98,3 +103,4 @@ public class OldMan : MonoBehaviour
         }
     }
 }
+

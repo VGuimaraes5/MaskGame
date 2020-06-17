@@ -1,43 +1,31 @@
 fileFormatVersion: 2
-guid: f9c0992bb1e4f8442a74d7bf2b607ecc
+guid: 1196d3945f7a9944caf166893b200495
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2908048234285275638
-    second: OldNoMask_0
+      213: -7429273193796066661
+    second: OldBaseMaskInfected10x_0
   - first:
-      213: 7782547458700453657
-    second: OldNoMask_1
+      213: -8400900235624293657
+    second: OldBaseMaskInfected10x_1
   - first:
-      213: -2486998444677620380
-    second: OldNoMask_2
+      213: -3555383307278687840
+    second: OldBaseMaskInfected10x_2
   - first:
-      213: -5067123390949159405
-    second: OldNoMask_3
+      213: 8969018930108280878
+    second: OldBaseMaskInfected10x_3
   - first:
-      213: -6221182188278607362
-    second: OldNoMask_4
+      213: 2801950002062730148
+    second: OldBaseMaskInfected10x_4
   - first:
-      213: 810328609060022623
-    second: OldNoMask_5
+      213: -5449598552030584120
+    second: OldBaseMaskInfected10x_5
   - first:
-      213: -6251691601246217403
-    second: OldNoMask_6
+      213: -4961726300416811974
+    second: OldBaseMaskInfected10x_6
   - first:
-      213: -6624231375346652446
-    second: OldNoMask_7
-  - first:
-      213: -796605932986433445
-    second: OldNoMask_8
-  - first:
-      213: -7856412177139958957
-    second: OldNoMask_9
-  - first:
-      213: 6061566611002942324
-    second: OldNoMask_10
-  - first:
-      213: 3200969241694623719
-    second: OldNoMask_11
+      213: 6509824754504450030
+    second: OldBaseMaskInfected10x_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -119,86 +107,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OldNoMask_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 480
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f9964a26767b5820800000000000000
-      internalID: 2908048234285275638
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OldNoMask_1
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 480
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 917a5731ea9210c60800000000000000
-      internalID: 7782547458700453657
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OldNoMask_2
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 480
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46d9a0c57186c7dd0800000000000000
-      internalID: -2486998444677620380
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OldNoMask_3
+      name: OldBaseMaskInfected10x_0
       rect:
         serializedVersion: 2
         x: 0
@@ -212,14 +125,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31e07696f16fda9b0800000000000000
-      internalID: -5067123390949159405
+      spriteID: b922478646be5e890800000000000000
+      internalID: -7429273193796066661
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OldNoMask_4
+      name: OldBaseMaskInfected10x_1
       rect:
         serializedVersion: 2
         x: 160
@@ -233,14 +146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef19aa0d2cbe9a9a0800000000000000
-      internalID: -6221182188278607362
+      spriteID: 7ea5e1edeb10a6b80800000000000000
+      internalID: -8400900235624293657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OldNoMask_5
+      name: OldBaseMaskInfected10x_2
       rect:
         serializedVersion: 2
         x: 320
@@ -254,14 +167,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f59eb5e939dde3b00800000000000000
-      internalID: 810328609060022623
+      spriteID: 0a1ec4128bdb8aec0800000000000000
+      internalID: -3555383307278687840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OldNoMask_6
+      name: OldBaseMaskInfected10x_3
       rect:
         serializedVersion: 2
         x: 0
@@ -275,14 +188,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54b1d6e8c978d39a0800000000000000
-      internalID: -6251691601246217403
+      spriteID: e20bbd0723b587c70800000000000000
+      internalID: 8969018930108280878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OldNoMask_7
+      name: OldBaseMaskInfected10x_4
       rect:
         serializedVersion: 2
         x: 160
@@ -296,14 +209,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ea277a29a00214a0800000000000000
-      internalID: -6624231375346652446
+      spriteID: 4a3aa577ea682e620800000000000000
+      internalID: 2801950002062730148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OldNoMask_8
+      name: OldBaseMaskInfected10x_5
       rect:
         serializedVersion: 2
         x: 320
@@ -317,14 +230,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b500062ef13e1f4f0800000000000000
-      internalID: -796605932986433445
+      spriteID: 8c2ebb97df22f54b0800000000000000
+      internalID: -5449598552030584120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OldNoMask_9
+      name: OldBaseMaskInfected10x_6
       rect:
         serializedVersion: 2
         x: 0
@@ -338,14 +251,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35bf48cffba68f290800000000000000
-      internalID: -7856412177139958957
+      spriteID: a3c51f6d738642bb0800000000000000
+      internalID: -4961726300416811974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OldNoMask_10
+      name: OldBaseMaskInfected10x_7
       rect:
         serializedVersion: 2
         x: 160
@@ -359,29 +272,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 473e23797b20f1450800000000000000
-      internalID: 6061566611002942324
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OldNoMask_11
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e7d82cd0902c6c20800000000000000
-      internalID: 3200969241694623719
+      spriteID: eef384aaf1b875a50800000000000000
+      internalID: 6509824754504450030
       vertices: []
       indices: 
       edges: []

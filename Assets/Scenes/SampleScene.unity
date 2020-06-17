@@ -234,8 +234,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OldMan: {fileID: 3681294593022943680, guid: fe67651630773224088bf596c89c60cf, type: 3}
   Corona: {fileID: 6166670704921800296, guid: a2b4c2c25dd15b545a0b2568678b7ccc, type: 3}
+  Young: {fileID: 3656586471851025180, guid: aa2bf6dd63ad9464a9de3394fd1d3b23, type: 3}
   oldManSpawnTime: 7
   coronaSpawnTime: 9
+  youngSpawnTime: 5
 --- !u!212 &250823536
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -310,6 +312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 273533682}
   - component: {fileID: 273533681}
+  - component: {fileID: 273533683}
   m_Layer: 0
   m_Name: backgroud
   m_TagString: Untagged
@@ -375,12 +378,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273533680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &273533683
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273533680}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f9654a5d75f63504eb902478ee692b18, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +499,7 @@ GameObject:
   - component: {fileID: 1138410141}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: MaskTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -540,7 +562,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138410138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 3.78, z: 0}
+  m_LocalPosition: {x: 3, y: 3.78, z: 0.5}
   m_LocalScale: {x: 1, y: 1.9945313, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -558,5 +580,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fec4b9f80340e479d71c561c0e54ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mask: {fileID: 3787907235583348350, guid: 3bb048125ddec09459beb6d4f9c4d3f6, type: 3}
+  mask: {fileID: 6841896094730444683, guid: 3bb048125ddec09459beb6d4f9c4d3f6, type: 3}
   speed: 5

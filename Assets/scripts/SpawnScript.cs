@@ -6,23 +6,39 @@ public class SpawnScript : MonoBehaviour
 {
     public GameObject OldMan;
     public GameObject Corona;
+    public GameObject Young;
 
     // Determina tempo de spawn dos alvos
-    public float oldManSpawnTime = 7.0f;
-    public float coronaSpawnTime = 9.0f;
+    public float oldManSpawnTime = 9.0f;
+    public float coronaSpawnTime = 6.0f;
+    public float youngSpawnTime = 5.0f;
     
     void Start()
     {        
-        // Chamar a função 'spawnOldMan' a cada 'spawnTime' segundos
+        // Chamar as funções 'spawn' a cada 'spawnTime' segundos
         InvokeRepeating("spawnCorona", coronaSpawnTime, coronaSpawnTime);
         InvokeRepeating("spawnOldMan", oldManSpawnTime, oldManSpawnTime);
+        InvokeRepeating("spawnYoung", youngSpawnTime, youngSpawnTime);
+    }
+
+    void spawnYoung()
+    {
+
+        // Aleatoriamente escolhe um ponto da calçada 
+        float posYZ = Random.Range(-4.83f, -3.21f);
+        var spawnPoint = new Vector3(spawnDirection(), posYZ, posYZ);
+        // Instancia um novo OldMan na scene
+        Instantiate(Young, spawnPoint, Quaternion.identity);
+
     }
 
     void spawnOldMan()
     {
 
         // Aleatoriamente escolhe um ponto da calçada 
-        var spawnPoint = new Vector2(spawnDirection(), Random.Range(-4.83f, -3.21f));
+        float posYZ = Random.Range(-4.83f, -3.21f);
+        //posiciona o mesmo valor de Y pra Z para que um sprite a frente n fique por tras de outro mais ao fundo
+        var spawnPoint = new Vector3(spawnDirection(), posYZ, posYZ);
         // Instancia um novo OldMan na scene
         Instantiate(OldMan, spawnPoint, Quaternion.identity);
 

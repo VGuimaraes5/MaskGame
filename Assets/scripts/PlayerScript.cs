@@ -6,7 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
     public GameObject mask;
     public float speed = 5.0f;
-    private float fireDelay = 2.0f;
+    private float fireDelay = 1.5f;
     
     
     void Update()
