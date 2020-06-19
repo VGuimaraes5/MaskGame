@@ -7,29 +7,40 @@ using UnityEngine;
 
 public class MaskScript : MonoBehaviour
 {
-    // Ajuste da velocidade em que a mascara cai
-    SpriteRenderer mt;
+    SpriteRenderer maskRenderer;
+    Animator animator;
+    Rigidbody2D rb;
+
     public float speed = -10.0f;
-    public Animator animator;
     public bool contaminated = false;
+
 
     void Start()
     {
-        adjustVelocity(0, speed);
         animator = GetComponent<Animator>();
-        mt = GetComponent<SpriteRenderer>();
+        maskRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+        
+        rb.velocity = new Vector2(0, speed);
     }
 
-    void Update()
+
+    void FixedUpdate()
     {
-        // Caso a mascara não atinja um alvo ou obstáculo, a mascara para na calçada por 2s e depois eh destruida
+        PreventLeavingScreen();        
+    }
+
+
+    private void PreventLeavingScreen()
+    {
         if (transform.position.y <= -5.0f)
         {
-            adjustVelocity(0, 0);
+            rb.velocity = new Vector2(0, 0);
             animator.SetBool("MaskStop", true);
-            Destroy(gameObject, 2.0f);
+            Destroy(gameObject, 1.5f);
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {   
@@ -40,16 +51,8 @@ public class MaskScript : MonoBehaviour
         }
         if (collision.gameObject.tag == "CoronaTag")
         {
-            mt.color = Color.green;
+            maskRenderer.color = Color.green;
             contaminated = true;
         }
     }
-
-    // Modularização do ajuste de velocidade para evitar repetição
-    private void adjustVelocity(float coordX, float coordY)
-    {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(coordX, coordY);
-    }
-
 }

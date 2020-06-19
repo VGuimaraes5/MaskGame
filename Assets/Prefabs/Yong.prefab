@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 984177684209961671}
   - component: {fileID: 7762437478030679210}
   - component: {fileID: 2076341909290643736}
-  - component: {fileID: 695758372874604255}
+  - component: {fileID: 5247009080194616630}
   - component: {fileID: 8932176231456445785}
   - component: {fileID: -5720269576109626291}
   m_Layer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -4136810329511990674, guid: a18d672aa7790af43861e545a993d39d,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -105,7 +105,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &695758372874604255
+--- !u!114 &5247009080194616630
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,12 +114,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3656586471851025180}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56be356e16afc154e98065f5bba970fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fb7a2b7c11fc4b4badbdd299a1e827e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 2
   usingMask: 0
-  CharacterSelec: 0
+  CharacterSelec: -1
 --- !u!61 &8932176231456445785
 BoxCollider2D:
   m_ObjectHideFlags: 0

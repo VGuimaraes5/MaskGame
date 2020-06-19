@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2236346183501050518}
   - component: {fileID: 8989833189774069441}
   - component: {fileID: 2465352483613769769}
-  - component: {fileID: -811526922304299117}
+  - component: {fileID: -9050347547674387498}
   m_Layer: 0
   m_Name: OldMan
   m_TagString: OldManTag
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -4757497860799392723, guid: 563f437c9a83e684497bb502bb538195,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -152,7 +152,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6128521, y: 0.6121774}
   m_EdgeRadius: 0
---- !u!114 &-811526922304299117
+--- !u!114 &-9050347547674387498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,8 +161,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3681294593022943680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6b68a0fe2ed2e84c850b662bd374f1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fb7a2b7c11fc4b4badbdd299a1e827e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   usingMask: 0
+  CharacterSelec: -1

@@ -60,15 +60,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
+  - m_ConditionMode: 6
     m_ConditionEvent: SelectCharacter
-    m_EventTreshold: 0.67
-  - m_ConditionMode: 3
-    m_ConditionEvent: SelectCharacter
-    m_EventTreshold: 0.33
-  - m_ConditionMode: 3
-    m_ConditionEvent: SelectCharacter
-    m_EventTreshold: 0
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4077522078101788741}
   m_Solo: 0
@@ -119,12 +113,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
+  - m_ConditionMode: 6
     m_ConditionEvent: SelectCharacter
-    m_EventTreshold: 0.34
-  - m_ConditionMode: 3
-    m_ConditionEvent: SelectCharacter
-    m_EventTreshold: 0
+    m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5477298439326292308}
   m_Solo: 0
@@ -313,12 +304,6 @@ AnimatorController:
   m_Name: YongAnimator
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: SelectCharacter
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
   - m_Name: Mask
     m_Type: 4
     m_DefaultFloat: 0
@@ -329,6 +314,12 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: SelectCharacter
+    m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: -1
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   m_AnimatorLayers:
@@ -412,39 +403,39 @@ AnimatorStateMachine:
     m_Position: {x: -800, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4077522078101788741}
-    m_Position: {x: -1100, y: 150, z: 0}
+    m_Position: {x: -1080, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1591711943952647611}
-    m_Position: {x: -1100, y: 40, z: 0}
+    m_Position: {x: -800, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1915353231464153512}
-    m_Position: {x: -1220, y: -20, z: 0}
+    m_Position: {x: -920, y: -50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7712730090169669679}
-    m_Position: {x: -990, y: -20, z: 0}
+    m_Position: {x: -670, y: -50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7721367265166289689}
-    m_Position: {x: -1220, y: 210, z: 0}
+    m_Position: {x: -1290, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4620927565904184363}
-    m_Position: {x: -990, y: 210, z: 0}
+    m_Position: {x: -1290, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5477298439326292308}
-    m_Position: {x: -520, y: 40, z: 0}
+    m_Position: {x: -520, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -804903930379087287}
-    m_Position: {x: -400, y: -20, z: 0}
+    m_Position: {x: -340, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4222736283363397864}
-    m_Position: {x: -630, y: -20, z: 0}
+    m_Position: {x: -350, y: 40, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -1280, y: 50, z: 0}
-  m_EntryPosition: {x: -770, y: 190, z: 0}
-  m_ExitPosition: {x: -1280, y: 150, z: 0}
+  m_AnyStatePosition: {x: -1280, y: -180, z: 0}
+  m_EntryPosition: {x: -780, y: 240, z: 0}
+  m_ExitPosition: {x: -1110, y: -180, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -4555551418673175773}
 --- !u!1101 &2991366468868501617
@@ -455,12 +446,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 6
     m_ConditionEvent: SelectCharacter
-    m_EventTreshold: 0.66
-  - m_ConditionMode: 3
-    m_ConditionEvent: SelectCharacter
-    m_EventTreshold: 0
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1591711943952647611}
   m_Solo: 0

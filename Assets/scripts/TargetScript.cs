@@ -1,24 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class OldMan : MonoBehaviour
+public class TargetScript : MonoBehaviour
 {
     public float speed = 2.0f;
     private SpriteRenderer maskEfect;
     private Animator animator;
     public bool usingMask = false;
 
-
+    public int CharacterSelec = -1;
 
     void Start()
-    { 
+    {
         maskEfect = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
 
-       
-        adjustMovement();        
+        if(gameObject.tag == "YoungTag")
+        {
+            selectSkin();
+            speed = 4.0f;
+        }
+
+        adjustMovement();
     }
 
 
@@ -65,10 +69,13 @@ public class OldMan : MonoBehaviour
         }
     }
 
+
     private void NormalColor()
     {
         maskEfect.color = Color.white;
     }
+
+
     private void adjustMovement()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -96,5 +103,13 @@ public class OldMan : MonoBehaviour
             float xPos = Mathf.Clamp(transform.position.x, 6.3f, -6.3f);
             transform.position = new Vector3(xPos, transform.position.y, transform.position.z);
         }
+    }
+
+
+    void selectSkin()
+    {
+        CharacterSelec = Random.Range(1, 4);
+
+        animator.SetInteger("SelectCharacter", CharacterSelec);
     }
 }

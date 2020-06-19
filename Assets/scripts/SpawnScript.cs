@@ -8,61 +8,48 @@ public class SpawnScript : MonoBehaviour
     public GameObject Corona;
     public GameObject Young;
 
-    // Determina tempo de spawn dos alvos
-    public float oldManSpawnTime = 9.0f;
-    public float coronaSpawnTime = 6.0f;
-    public float youngSpawnTime = 5.0f;
+    public float coronaSpawnTime = 2.0f;
+    public float targetsSpawnTime = 5.0f;
     
     void Start()
-    {        
-        // Chamar as funções 'spawn' a cada 'spawnTime' segundos
+    {       
+        InvokeRepeating("spawnTargets", targetsSpawnTime, targetsSpawnTime);
         InvokeRepeating("spawnCorona", coronaSpawnTime, coronaSpawnTime);
-        InvokeRepeating("spawnOldMan", oldManSpawnTime, oldManSpawnTime);
-        InvokeRepeating("spawnYoung", youngSpawnTime, youngSpawnTime);
     }
 
-    void spawnYoung()
+
+    //Spawna aleatoriamente o objeto passado entre a altura minima e máxima permitidas, posiciona tambem em z para evitar bugs de sobreposição
+    private void SpawnObject(GameObject objectToSpawn, float spwanPointMin, float spawnPointMax) 
     {
+        float positionYZ = Random.Range(spwanPointMin, spawnPointMax);
+        float positionX = 0.0f;
 
-        // Aleatoriamente escolhe um ponto da calçada 
-        float posYZ = Random.Range(-4.83f, -3.21f);
-        var spawnPoint = new Vector3(spawnDirection(), posYZ, posYZ);
-        // Instancia um novo OldMan na scene
-        Instantiate(Young, spawnPoint, Quaternion.identity);
+        int leftOrRight = Random.Range(0, 2);
 
+        positionX = leftOrRight == 1 ? 5.8f : -5.8f;
+        
+        var spwanPoint = new Vector3(positionX, positionYZ, positionYZ);
+        Instantiate(objectToSpawn, spwanPoint, Quaternion.identity);
     }
 
-    void spawnOldMan()
+
+    private void spawnTargets() 
     {
-
-        // Aleatoriamente escolhe um ponto da calçada 
-        float posYZ = Random.Range(-4.83f, -3.21f);
-        //posiciona o mesmo valor de Y pra Z para que um sprite a frente n fique por tras de outro mais ao fundo
-        var spawnPoint = new Vector3(spawnDirection(), posYZ, posYZ);
-        // Instancia um novo OldMan na scene
-        Instantiate(OldMan, spawnPoint, Quaternion.identity);
-
-    }
-    void spawnCorona()
-    {   
-        // Aleatoriamente escolhe um ponto da calçada 
-        var spawnPoint = new Vector2(spawnDirection(), Random.Range(-0.2f, -1.2f));
-        // Instancia um novo OldMan na scene
-        Instantiate(Corona, spawnPoint, Quaternion.identity);
-
-    }
-
-    float spawnDirection()
-    {
-        float alternatives = Random.Range(0.0f, 1.0f);
-        //determina se OldMan ira spawnar na esquerda ou na direita
-        if (alternatives < 0.5f)
+        float randonTarget = Random.Range(0.0f, 10.0f);
+        
+        if (randonTarget < 2.5f)
         {
-            return -5.8f;
-        }
+            SpawnObject(OldMan, -4.83f, -3.21f);
+        } 
         else
         {
-            return 5.8f;
+            SpawnObject(Young, -4.83f, -3.21f);
         }
+    }
+
+ 
+    void spawnCorona()
+    {
+        SpawnObject(Corona, -1.2f, 1.7f);
     }
 }
