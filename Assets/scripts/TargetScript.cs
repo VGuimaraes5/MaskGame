@@ -9,12 +9,17 @@ public class TargetScript : MonoBehaviour
     private Animator animator;
     public bool usingMask = false;
 
+    private PointsScript ptScript;
+    private PlayerScript playerScript;
+
     public int CharacterSelec = -1;
 
     void Start()
     {
         maskEfect = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        ptScript = GameObject.Find("pointsControler").GetComponent<PointsScript>();
+        playerScript = GameObject.Find("player").GetComponent<PlayerScript>();
 
         if(gameObject.tag == "YoungTag")
         {
@@ -47,24 +52,30 @@ public class TargetScript : MonoBehaviour
     {
         // Verifica a colisao entre mascara e OldMan
 
-        if (collision.gameObject.tag == "MaskTag" && collision.gameObject.GetComponent<MaskScript>().contaminated == true && usingMask == false)
+        if (collision.gameObject.tag == "MaskTag" && usingMask == false)
         {
-            maskEfect.color = Color.red;
-            Invoke("NormalColor", 0.5f);
-            animator.SetBool("MaskInfected", true);
-            animator.SetBool("Mask", true);
+            if (collision.gameObject.GetComponent<MaskScript>().contaminated)
+            {
+                maskEfect.color = Color.red;
+                animator.SetBool("MaskInfected", true);
+                playerScript.lifes --;
+            }
+            else
+            {
+                maskEfect.color = Color.cyan;
+                animator.SetBool("MaskInfected", false);
+                if (gameObject.tag == "OldManTag")
+                {
+                    ptScript.points += 3;
+                }
+                if(gameObject.tag == "YoungTag")
+                {
+                    ptScript.points += 2;
+                }
+            }
 
-            usingMask = true;
-        }
-
-        if (collision.gameObject.tag == "MaskTag" && collision.gameObject.GetComponent<MaskScript>().contaminated == false && usingMask == false)
-        {
-            maskEfect.color = Color.cyan;
             Invoke("NormalColor", 0.5f);
-            // Alterna a condição para troca das sprites de animação para a que OldMan esta vestindo mascara
             animator.SetBool("Mask", true);
-            animator.SetBool("MaskInfected", false);
-            // Identifica que esse objeto já foi atingido para que seja destruido quando sair de cena 
             usingMask = true;
         }
     }

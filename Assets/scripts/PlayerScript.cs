@@ -1,13 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
     public GameObject mask;
     public float speed = 5.0f;
     private float fireDelay = 1.0f;
-    
+
+    public Sprite emptyHeart;
+
+    public Image heart1;
+    public Image heart2;
+    public Image heart3;
+
+    public int lifes = 3;
     
     void Update()
     {
@@ -16,6 +24,7 @@ public class PlayerScript : MonoBehaviour
         movePlayer();
         maxPlayerMovement();
         throwMask();
+        UpdateLifes();
     }
 
 
@@ -42,6 +51,23 @@ public class PlayerScript : MonoBehaviour
         {
             Instantiate(mask, new Vector2(transform.position.x - 0.4f, transform.position.y), Quaternion.identity);
             fireDelay = 0;
+        }
+    }
+
+
+    private void UpdateLifes()
+    {
+        switch (lifes)
+        {
+            case 2:
+                heart3.sprite = emptyHeart;
+                break;
+            case 1:
+                heart2.sprite = emptyHeart;
+                break;
+            case 0:
+                heart1.sprite = emptyHeart;
+                break;
         }
     }
 }
