@@ -74,7 +74,7 @@ public class TargetScript : MonoBehaviour
                 }
             }
 
-            Invoke("NormalColor", 0.5f);
+            Invoke("NormalColor", 0.2f);
             animator.SetBool("Mask", true);
             usingMask = true;
         }

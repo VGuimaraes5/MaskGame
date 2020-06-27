@@ -7,26 +7,43 @@ public class PlayerScript : MonoBehaviour
 {
     public GameObject mask;
     public float speed = 5.0f;
-    private float fireDelay = 1.0f;
-
+    private float fireDelayTime = 1.0f;
+    public float fireDalayMinimun = 1.5f;
     public Sprite emptyHeart;
 
     public Image heart1;
     public Image heart2;
     public Image heart3;
 
+    public Animator playerAnimator;
+
     public int lifes = 3;
-    
+
+    void Start()
+    {
+        playerAnimator = GetComponent<Animator>();
+    }
     void Update()
     {
-        fireDelay += Time.deltaTime;
-
+        fireDelayTime += Time.deltaTime;
+        maskAnimation();
         movePlayer();
         maxPlayerMovement();
         throwMask();
         UpdateLifes();
     }
 
+    void maskAnimation()
+    {
+        if(fireDelayTime < fireDalayMinimun)
+        {
+            playerAnimator.SetBool("Fire", false);
+        }
+        else
+        {
+            playerAnimator.SetBool("Mask", true);           
+        }
+    }
 
     private void movePlayer()
     {
@@ -47,14 +64,19 @@ public class PlayerScript : MonoBehaviour
 
     private void throwMask()
     {
-        if (Input.GetKeyDown("space") && fireDelay >= 1.0f)
+        if (Input.GetKeyDown("space") && fireDelayTime >= fireDalayMinimun)
         {
-            Instantiate(mask, new Vector2(transform.position.x - 0.4f, transform.position.y), Quaternion.identity);
-            fireDelay = 0;
+            playerAnimator.SetBool("Fire", true);
+            playerAnimator.SetBool("Mask", false);
+            Invoke("spawnMask", 0.4f);
+            fireDelayTime = 0;
         }
     }
 
-
+    private void spawnMask()
+    {
+        Instantiate(mask, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+    }
     private void UpdateLifes()
     {
         switch (lifes)
