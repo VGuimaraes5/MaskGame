@@ -15,8 +15,8 @@ public class PointsScript : MonoBehaviour
     {
         UpdateRecord();
 
-        pointsUI.text = points + " PONTOS";
-        recordUI.text = PlayerPrefs.GetInt("Record") + " RECORDE ";
+        pointsUI.text = points + " POINTS";
+        recordUI.text = " RECORD " + PlayerPrefs.GetInt("Record");
     }
 
 

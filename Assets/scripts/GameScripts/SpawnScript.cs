@@ -12,7 +12,8 @@ public class SpawnScript : MonoBehaviour
     public float targetsSpawnTime = 5.0f;
     
     void Start()
-    {       
+    {
+        Random.InitState((int)System.DateTime.Now.Ticks);
         InvokeRepeating("spawnTargets", targetsSpawnTime, targetsSpawnTime);
         InvokeRepeating("spawnCorona", coronaSpawnTime, coronaSpawnTime);
     }
@@ -37,7 +38,7 @@ public class SpawnScript : MonoBehaviour
     {
         float randonTarget = Random.Range(0.0f, 10.0f);
         
-        if (randonTarget < 2.5f)
+        if (randonTarget < 5.0f)
         {
             SpawnObject(OldMan, -4.83f, -3.21f);
         } 

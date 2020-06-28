@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour
     public Animator playerAnimator;
 
     public int lifes = 3;
+    public GameObject gameOverPanel;
 
     void Start()
     {
@@ -31,6 +32,16 @@ public class PlayerScript : MonoBehaviour
         maxPlayerMovement();
         throwMask();
         UpdateLifes();
+        if(lifes == 0)
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        gameOverPanel.gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void maskAnimation()
@@ -51,7 +62,6 @@ public class PlayerScript : MonoBehaviour
         transform.Translate(horizontal, 0, 0);
     }
 
-
     private void maxPlayerMovement()
     {
         if (transform.position.x <= -3.4f || transform.position.x >= 3.0f)
@@ -60,7 +70,6 @@ public class PlayerScript : MonoBehaviour
             transform.position = new Vector2(xPos, transform.position.y);
         }
     }
-
 
     private void throwMask()
     {
@@ -77,6 +86,7 @@ public class PlayerScript : MonoBehaviour
     {
         Instantiate(mask, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
     }
+
     private void UpdateLifes()
     {
         switch (lifes)

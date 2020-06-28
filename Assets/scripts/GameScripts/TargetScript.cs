@@ -14,6 +14,7 @@ public class TargetScript : MonoBehaviour
 
     public int CharacterSelec = -1;
 
+
     void Start()
     {
         maskEfect = GetComponent<SpriteRenderer>();
@@ -31,19 +32,16 @@ public class TargetScript : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        // Limitando o personagem a tela
-        returnToScreen();
-    }
-
-
     void OnBecameInvisible()
     {
         // Verifica se OldMan foi atingido por uma mascara e o destroi
         if (usingMask == true)
         {
             Destroy(gameObject);
+        }
+        else
+        {
+            returnToScreen();
         }
     }
 
@@ -109,11 +107,11 @@ public class TargetScript : MonoBehaviour
     private void returnToScreen()
     {
         // caso ainda não tenha sido atingido por uma mascara OldMan retorna a tela em loop infinito
-        if (transform.position.x <= -6.3f || transform.position.x >= 6.3f)
-        {
-            float xPos = Mathf.Clamp(transform.position.x, 6.3f, -6.3f);
+        //if (transform.position.x <= -6.3f || transform.position.x >= 6.3f)
+        
+            float xPos = Mathf.Clamp(transform.position.x, 5.8f, -5.8f);
             transform.position = new Vector3(xPos, transform.position.y, transform.position.z);
-        }
+   
     }
 
 
