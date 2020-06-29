@@ -7,6 +7,7 @@ public class SpawnScript : MonoBehaviour
     public GameObject OldMan;
     public GameObject Corona;
     public GameObject Young;
+    public GameObject Dog;
 
     public float coronaSpawnTime = 2.0f;
     public float targetsSpawnTime = 5.0f;
@@ -38,11 +39,13 @@ public class SpawnScript : MonoBehaviour
     {
         float randonTarget = Random.Range(0.0f, 10.0f);
         
-        if (randonTarget < 5.0f)
+        if (randonTarget < 3.0f)
         {
             SpawnObject(OldMan, -4.83f, -3.21f);
-        } 
-        else
+        }else if (randonTarget >= 3.0f && randonTarget < 4.0f)
+        {
+            SpawnObject(Dog, -4.83f, -3.21f);
+        }else
         {
             SpawnObject(Young, -4.83f, -3.21f);
         }

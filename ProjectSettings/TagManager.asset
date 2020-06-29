@@ -8,6 +8,7 @@ TagManager:
   - CoronaTag
   - MaskTag
   - YoungTag
+  - DogTag
   layers:
   - Default
   - TransparentFX

@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class TargetScript : MonoBehaviour
 {
-    public float speed = 2.0f;
+    public float speed;
     private SpriteRenderer maskEfect;
     private Animator animator;
     public bool usingMask = false;
+    public int pointValue;
+
 
     private PointsScript ptScript;
     private PlayerScript playerScript;
+
+    
 
     public int CharacterSelec = -1;
 
@@ -25,7 +29,6 @@ public class TargetScript : MonoBehaviour
         if(gameObject.tag == "YoungTag")
         {
             selectSkin();
-            speed = 4.0f;
         }
 
         adjustMovement();
@@ -62,14 +65,7 @@ public class TargetScript : MonoBehaviour
             {
                 maskEfect.color = Color.cyan;
                 animator.SetBool("MaskInfected", false);
-                if (gameObject.tag == "OldManTag")
-                {
-                    ptScript.points += 3;
-                }
-                if(gameObject.tag == "YoungTag")
-                {
-                    ptScript.points += 2;
-                }
+                ptScript.points += pointValue;
             }
 
             Invoke("NormalColor", 0.2f);
