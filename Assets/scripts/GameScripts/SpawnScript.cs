@@ -37,6 +37,7 @@ public class SpawnScript : MonoBehaviour
 
     private void spawnTargets() 
     {
+        //Escolhe aleatoriamente um dos 3 alvos para ser spawnado
         float randonTarget = Random.Range(0.0f, 10.0f);
         
         if (randonTarget < 3.0f)

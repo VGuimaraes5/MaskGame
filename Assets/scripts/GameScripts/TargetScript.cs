@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TargetScript : MonoBehaviour
 {
+    public GameObject bonus;
     public float speed;
     private SpriteRenderer maskEfect;
     private Animator animator;
@@ -13,6 +14,7 @@ public class TargetScript : MonoBehaviour
 
     private PointsScript ptScript;
     private PlayerScript playerScript;
+    private BonusScript bonusScript;
 
     
 
@@ -25,8 +27,9 @@ public class TargetScript : MonoBehaviour
         animator = GetComponent<Animator>();
         ptScript = GameObject.Find("pointsControler").GetComponent<PointsScript>();
         playerScript = GameObject.Find("player").GetComponent<PlayerScript>();
+        bonusScript = GameObject.Find("BonusControl").GetComponent<BonusScript>();
 
-        if(gameObject.tag == "YoungTag")
+        if (gameObject.tag != "DogTag")
         {
             selectSkin();
         }
@@ -65,7 +68,14 @@ public class TargetScript : MonoBehaviour
             {
                 maskEfect.color = Color.cyan;
                 animator.SetBool("MaskInfected", false);
-                ptScript.points += pointValue;
+                ptScript.points += pointValue * bonusScript.bonusValue;
+
+                //chance de spawnar um bonus 
+                float bonusChance = Random.Range(0.0f, 10.0f);
+                if(bonusChance < 9.0f)
+                {
+                    Instantiate(bonus, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                }
             }
 
             Invoke("NormalColor", 0.2f);
@@ -113,6 +123,7 @@ public class TargetScript : MonoBehaviour
 
     void selectSkin()
     {
+        //seleciona uma skin para o Old ou o Young
         CharacterSelec = Random.Range(1, 4);
 
         animator.SetInteger("SelectCharacter", CharacterSelec);

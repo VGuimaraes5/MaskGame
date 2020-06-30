@@ -1,31 +1,19 @@
 fileFormatVersion: 2
-guid: 41f7782276d4d294e8ba7a2424bb4729
+guid: e715c4e0f5c8a4f469f64afb76e52d80
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1285920191687512441
-    second: OldGirlMask_0
+      213: 2510457086068454768
+    second: GoldMask_0
   - first:
-      213: 8162773221544256155
-    second: OldGirlMask_1
+      213: -2686277079567804255
+    second: GoldMask_1
   - first:
-      213: 4947486694736302961
-    second: OldGirlMask_2
+      213: 202547526314619964
+    second: GoldMask_2
   - first:
-      213: -1883911331286170894
-    second: OldGirlMask_3
-  - first:
-      213: -6541191078085207806
-    second: OldGirlMask_4
-  - first:
-      213: 3865368313408338273
-    second: OldGirlMask_5
-  - first:
-      213: 4314177752222127923
-    second: OldGirlMask_6
-  - first:
-      213: -2716201123076665795
-    second: OldGirlMask_7
+      213: -2619144213843412115
+    second: GoldMask_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -111,70 +99,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OldGirlMask_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 320
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78ea6f4166e772ee0800000000000000
-      internalID: -1285920191687512441
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OldGirlMask_1
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 320
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b92673c2ffef74170800000000000000
-      internalID: 8162773221544256155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OldGirlMask_2
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 320
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1739aba9fe009a440800000000000000
-      internalID: 4947486694736302961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OldGirlMask_3
+      name: GoldMask_0
       rect:
         serializedVersion: 2
         x: 0
@@ -188,14 +113,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f2ca5620a00bd5e0800000000000000
-      internalID: -1883911331286170894
+      spriteID: 075f8f63b6fe6d220800000000000000
+      internalID: 2510457086068454768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OldGirlMask_4
+      name: GoldMask_1
       rect:
         serializedVersion: 2
         x: 160
@@ -209,35 +134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 209d6c60f550935a0800000000000000
-      internalID: -6541191078085207806
+      spriteID: 1a856188a3d68bad0800000000000000
+      internalID: -2686277079567804255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OldGirlMask_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 160
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16931ce500c84a530800000000000000
-      internalID: 3865368313408338273
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OldGirlMask_6
+      name: GoldMask_2
       rect:
         serializedVersion: 2
         x: 0
@@ -251,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 337d713eec90fdb30800000000000000
-      internalID: 4314177752222127923
+      spriteID: c34fd1ce6e79fc200800000000000000
+      internalID: 202547526314619964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OldGirlMask_7
+      name: GoldMask_3
       rect:
         serializedVersion: 2
         x: 160
@@ -272,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3e8f78387d1e4ad0800000000000000
-      internalID: -2716201123076665795
+      spriteID: d6bf75ed63ee6abd0800000000000000
+      internalID: -2619144213843412115
       vertices: []
       indices: 
       edges: []
