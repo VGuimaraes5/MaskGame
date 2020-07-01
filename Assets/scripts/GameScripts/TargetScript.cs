@@ -40,7 +40,7 @@ public class TargetScript : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        // Verifica se OldMan foi atingido por uma mascara e o destroi
+        // Verifica se Target foi atingido por uma mascara e o destroi ao sair da tela
         if (usingMask == true)
         {
             Destroy(gameObject);
@@ -54,7 +54,7 @@ public class TargetScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Verifica a colisao entre mascara e OldMan
+        // Verifica a colisao entre mascara e um Target
 
         if (collision.gameObject.tag == "MaskTag" && usingMask == false)
         {
@@ -71,8 +71,8 @@ public class TargetScript : MonoBehaviour
                 ptScript.points += pointValue * bonusScript.bonusValue;
 
                 //chance de spawnar um bonus 
-                float bonusChance = Random.Range(0.0f, 10.0f);
-                if(bonusChance < 9.0f)
+                int bonusChance = Random.Range(0, 10);
+                if(bonusChance < 4)
                 {
                     Instantiate(bonus, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 }
@@ -81,6 +81,8 @@ public class TargetScript : MonoBehaviour
             Invoke("NormalColor", 0.2f);
             animator.SetBool("Mask", true);
             usingMask = true;
+            //destroy a mascara
+            Destroy(collision.gameObject);
         }
     }
 
@@ -95,7 +97,7 @@ public class TargetScript : MonoBehaviour
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
-        //Verifica de qual lado o OldMan foi espawnado direita/esquerda
+        //Verifica de qual lado o Target foi espawnado direita/esquerda
         if (transform.position.x == 5.8f)
         {
             // Caso o spawn seja na direita, rotaciona a sprite 180º em Y e inverte velocidade para movimentar para a esquerda
@@ -113,7 +115,6 @@ public class TargetScript : MonoBehaviour
     private void returnToScreen()
     {
         // caso ainda não tenha sido atingido por uma mascara OldMan retorna a tela em loop infinito
-        //if (transform.position.x <= -6.3f || transform.position.x >= 6.3f)
         
             float xPos = Mathf.Clamp(transform.position.x, 5.8f, -5.8f);
             transform.position = new Vector3(xPos, transform.position.y, transform.position.z);
@@ -124,7 +125,7 @@ public class TargetScript : MonoBehaviour
     void selectSkin()
     {
         //seleciona uma skin para o Old ou o Young
-        CharacterSelec = Random.Range(1, 4);
+        CharacterSelec = Random.Range(1, 5);
 
         animator.SetInteger("SelectCharacter", CharacterSelec);
     }

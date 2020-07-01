@@ -44,11 +44,7 @@ public class MaskScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {   
-        // caso a colisao com um alvo aconteça a mascara eh destruida
-        if (collision.gameObject.tag == "OldManTag" || collision.gameObject.tag == "YoungTag" || collision.gameObject.tag == "DogTag")
-        {
-            Destroy(gameObject);
-        }
+        // caso haja colisao com o corona ela fica infectada 
         if (collision.gameObject.tag == "CoronaTag")
         {
             maskRenderer.color = Color.green;
