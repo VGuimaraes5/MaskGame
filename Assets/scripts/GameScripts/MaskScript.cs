@@ -1,5 +1,4 @@
-﻿using Packages.Rider.Editor.UnitTesting;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Security;
@@ -27,11 +26,11 @@ public class MaskScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        PreventLeavingScreen();        
+        StopOnGround();        
     }
 
 
-    private void PreventLeavingScreen()
+    private void StopOnGround()
     {
         if (transform.position.y <= -5.0f)
         {

@@ -123,8 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b36afe3f97ff74980311388d5c1f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonus: {fileID: 0}
-  bonusRandom: 0
+  bonusAudio: {fileID: 8300000, guid: 8ad814ac5f891d143a832ccba98af6c5, type: 3}
 --- !u!95 &-3849634355563383540
 Animator:
   serializedVersion: 3

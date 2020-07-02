@@ -10,7 +10,7 @@ public class SpawnScript : MonoBehaviour
     public GameObject Dog;
 
     public float coronaSpawnTime = 2.0f;
-    public float targetsSpawnTime = 5.0f;
+    public float targetsSpawnTime = 2.5f;
     
     void Start()
     {
@@ -21,14 +21,13 @@ public class SpawnScript : MonoBehaviour
 
 
     //Spawna aleatoriamente o objeto passado entre a altura minima e máxima permitidas, posiciona tambem em z para evitar bugs de sobreposição
-    private void SpawnObject(GameObject objectToSpawn, float spwanPointMin, float spawnPointMax) 
+    private void SpawnObject(GameObject objectToSpawn, float spwanPointMin_Y, float spawnPointMax_Y) 
     {
-        float positionYZ = Random.Range(spwanPointMin, spawnPointMax);
-        float positionX = 0.0f;
+        float positionYZ = Random.Range(spwanPointMin_Y, spawnPointMax_Y);
 
         int leftOrRight = Random.Range(0, 2);
 
-        positionX = leftOrRight == 1 ? 5.8f : -5.8f;
+        float positionX = leftOrRight == 1 ? 5.8f : -5.8f;
         
         var spwanPoint = new Vector3(positionX, positionYZ, positionYZ);
         Instantiate(objectToSpawn, spwanPoint, Quaternion.identity);
@@ -38,17 +37,22 @@ public class SpawnScript : MonoBehaviour
     private void spawnTargets() 
     {
         //Escolhe aleatoriamente um dos 3 alvos para ser spawnado
-        int randonTarget = Random.Range(0, 10);
+        float randonTarget = Random.Range(0.0f, 100.0f);
+
+        float min = -4.83f;
+        float max = -3.21f;
         
-        if (randonTarget < 3)
+        if (randonTarget <= 20.0f)
         {
-            SpawnObject(OldMan, -4.83f, -3.21f);
-        }else if (randonTarget >= 3 && randonTarget <= 4)
+            SpawnObject(OldMan, min, max);
+        }
+        else if (randonTarget <= 50.0f)
         {
-            SpawnObject(Dog, -4.83f, -3.21f);
-        }else
+            SpawnObject(Dog, min, max);
+        }
+        else
         {
-            SpawnObject(Young, -4.83f, -3.21f);
+            SpawnObject(Young, min, max);
         }
     }
 

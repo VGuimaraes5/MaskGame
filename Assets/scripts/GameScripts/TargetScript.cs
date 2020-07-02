@@ -5,27 +5,35 @@ using UnityEngine;
 public class TargetScript : MonoBehaviour
 {
     public GameObject bonus;
-    public float speed;
-    private SpriteRenderer maskEfect;
-    private Animator animator;
-    public bool usingMask = false;
-    public int pointValue;
-
-
-    private PointsScript ptScript;
-    private PlayerScript playerScript;
     private BonusScript bonusScript;
 
+
+    private SpriteRenderer maskRenderer;
+    public bool usingMask = false;
     
 
-    public int CharacterSelec = -1;
+    private Animator animator;
+
+
+    private PlayerScript playerScript;
+    private PointsScript ptScript;
+
+    
+    public int pointValue;
+    public float speed;
+    public int CharacterSelec;
+
+    public AudioClip loseLifeAudio;
+    public AudioClip pointAudio;
 
 
     void Start()
     {
-        maskEfect = GetComponent<SpriteRenderer>();
+        Random.InitState((int)System.DateTime.Now.Ticks);
+
+        maskRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        ptScript = GameObject.Find("pointsControler").GetComponent<PointsScript>();
+        ptScript = GameObject.Find("player").GetComponent<PointsScript>();
         playerScript = GameObject.Find("player").GetComponent<PlayerScript>();
         bonusScript = GameObject.Find("BonusControl").GetComponent<BonusScript>();
 
@@ -40,15 +48,7 @@ public class TargetScript : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        // Verifica se Target foi atingido por uma mascara e o destroi ao sair da tela
-        if (usingMask == true)
-        {
             Destroy(gameObject);
-        }
-        else
-        {
-            returnToScreen();
-        }
     }
 
 
@@ -60,36 +60,42 @@ public class TargetScript : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<MaskScript>().contaminated)
             {
-                maskEfect.color = Color.red;
+                AudioSource.PlayClipAtPoint(loseLifeAudio, transform.position);
+                maskRenderer.color = Color.red;
                 animator.SetBool("MaskInfected", true);
                 playerScript.lifes --;
             }
             else
             {
-                maskEfect.color = Color.cyan;
+                AudioSource.PlayClipAtPoint(pointAudio, transform.position);
+                maskRenderer.color = Color.cyan;
                 animator.SetBool("MaskInfected", false);
                 ptScript.points += pointValue * bonusScript.bonusValue;
 
-                //chance de spawnar um bonus 
-                int bonusChance = Random.Range(0, 10);
-                if(bonusChance < 4)
-                {
-                    Instantiate(bonus, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-                }
+                SpawnBonus();
             }
 
             Invoke("NormalColor", 0.2f);
             animator.SetBool("Mask", true);
             usingMask = true;
-            //destroy a mascara
+            //destroi a mascara
             Destroy(collision.gameObject);
+        }
+    }
+
+    private void SpawnBonus()
+    {
+        float bonusChance = Random.Range(0.0f, 100.0f);
+        if (bonusChance < 20.0f)
+        {
+            Instantiate(bonus, transform.position, Quaternion.identity);
         }
     }
 
 
     private void NormalColor()
     {
-        maskEfect.color = Color.white;
+        maskRenderer.color = Color.white;
     }
 
 
@@ -97,8 +103,10 @@ public class TargetScript : MonoBehaviour
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
-        //Verifica de qual lado o Target foi espawnado direita/esquerda
-        if (transform.position.x == 5.8f)
+        if (gameObject.tag == "DogTag") transform.Rotate(0, -180, 0); //inverte sprite do cachorro para igualar com os outros
+
+            //Verifica de qual lado o Target foi espawnado direita/esquerda
+            if (transform.position.x == 5.8f)
         {
             // Caso o spawn seja na direita, rotaciona a sprite 180º em Y e inverte velocidade para movimentar para a esquerda
             transform.Rotate(0, 180, 0);
@@ -110,17 +118,6 @@ public class TargetScript : MonoBehaviour
             rb.velocity = new Vector2(speed, 0);
         }
     }
-
-
-    private void returnToScreen()
-    {
-        // caso ainda não tenha sido atingido por uma mascara OldMan retorna a tela em loop infinito
-        
-            float xPos = Mathf.Clamp(transform.position.x, 5.8f, -5.8f);
-            transform.position = new Vector3(xPos, transform.position.y, transform.position.z);
-   
-    }
-
 
     void selectSkin()
     {

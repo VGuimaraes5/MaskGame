@@ -10,6 +10,14 @@ public class MenuButtons : MonoBehaviour
     public GameObject tutorialPanel;
 
 
+    private void Update()
+    {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+    }
+
     public void OnClickStart()
     {
         SceneManager.LoadScene("MainGame");

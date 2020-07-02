@@ -118,10 +118,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonus: {fileID: 4936671176625567493, guid: f6551fa33d59e57438a16cfad790d92d, type: 3}
-  speed: 3.5
   usingMask: 0
-  pointValue: 10
+  pointValue: 5
+  speed: 3.5
   CharacterSelec: -1
+  loseLifeAudio: {fileID: 8300000, guid: 1958df7b2bdfc514aa786ba53c4ff7bc, type: 3}
+  pointAudio: {fileID: 8300000, guid: f5996aba92b156b4fbd98d92801e4193, type: 3}
 --- !u!61 &8932176231456445785
 BoxCollider2D:
   m_ObjectHideFlags: 0

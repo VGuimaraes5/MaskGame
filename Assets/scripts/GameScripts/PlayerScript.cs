@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class PlayerScript : MonoBehaviour
 
     public int lifes = 3;
     public GameObject gameOverPanel;
+    public GameObject spawnObject;
+
+    public AudioClip gameOverAudio;
 
     void Start()
     {
@@ -26,35 +30,25 @@ public class PlayerScript : MonoBehaviour
     }
     void Update()
     {
-        fireDelayTime += Time.deltaTime;
-        maskAnimation();
         movePlayer();
         maxPlayerMovement();
         throwMask();
         UpdateLifes();
+
         if(lifes == 0)
         {
+            AudioSource.PlayClipAtPoint(gameOverAudio, transform.position);
             GameOver();
         }
     }
 
     private void GameOver()
     {
-        gameOverPanel.gameObject.SetActive(true);
+        Destroy(spawnObject);
         gameObject.SetActive(false);
+        gameOverPanel.gameObject.SetActive(true);
     }
 
-    void maskAnimation()
-    {
-        if(fireDelayTime < fireDalayMinimun)
-        {
-            playerAnimator.SetBool("Fire", false);
-        }
-        else
-        {
-            playerAnimator.SetBool("Mask", true);           
-        }
-    }
 
     private void movePlayer()
     {
@@ -73,11 +67,12 @@ public class PlayerScript : MonoBehaviour
 
     private void throwMask()
     {
+        fireDelayTime += Time.deltaTime;
+
         if (Input.GetKeyDown("space") && fireDelayTime >= fireDalayMinimun)
         {
-            playerAnimator.SetBool("Fire", true);
-            playerAnimator.SetBool("Mask", false);
-            Invoke("spawnMask", 0.4f);
+            playerAnimator.SetTrigger("ThrowMask");
+            Invoke("spawnMask", 0.2f);
             fireDelayTime = 0;
         }
     }
@@ -89,17 +84,8 @@ public class PlayerScript : MonoBehaviour
 
     private void UpdateLifes()
     {
-        switch (lifes)
-        {
-            case 2:
-                heart3.sprite = emptyHeart;
-                break;
-            case 1:
-                heart2.sprite = emptyHeart;
-                break;
-            case 0:
-                heart1.sprite = emptyHeart;
-                break;
-        }
+        if (lifes < 3) heart3.sprite = emptyHeart;
+        if (lifes < 2) heart2.sprite = emptyHeart;
+        if (lifes < 1) heart1.sprite = emptyHeart;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BonusScript : MonoBehaviour
 {
-    public Animator animator;
+    private Animator animator;
     public float bonusTime;
     public int bonusValue;
     void Start()
@@ -16,8 +16,13 @@ public class BonusScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetInteger("Value", bonusValue);
+        BonusAnimation();
+    }
+
+    private void BonusAnimation()
+    {
         bonusTime += Time.deltaTime;
+        animator.SetInteger("Value", bonusValue);
         animator.SetFloat("Time", bonusTime);
         if (bonusTime >= 6.0f)
         {
