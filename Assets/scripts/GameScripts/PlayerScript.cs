@@ -6,6 +6,8 @@ using UnityEngine.Video;
 
 public class PlayerScript : MonoBehaviour
 {
+    //controles do jogador
+
     public GameObject mask;
     public float speed = 5.0f;
     private float fireDelayTime = 1.0f;
@@ -24,10 +26,13 @@ public class PlayerScript : MonoBehaviour
 
     public AudioClip gameOverAudio;
 
+
     void Start()
     {
         playerAnimator = GetComponent<Animator>();
     }
+
+
     void Update()
     {
         movePlayer();
@@ -45,7 +50,7 @@ public class PlayerScript : MonoBehaviour
 
     private void GameOver()
     {
-        Destroy(spawnObject); //destroi o spawner
+        Destroy(spawnObject); //destroi o spawner pois se ele ficasse na tela começava a spawnar alvos com erro que buscavam o componente vida no player e não encontravam
         gameObject.SetActive(false); //desativa o player
         gameOverPanel.gameObject.SetActive(true); //ativa a tela de gameover 
     }
@@ -85,7 +90,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    //função que spawna a mascara
+    //função que spawna a mascara, fizemos separado da função de jogar a mascara, pois precisavamos adicionar um delay com o Invoke para encaixar na animação da mão no player
     private void spawnMask()
     {
         Instantiate(mask, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);

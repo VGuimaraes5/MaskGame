@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SkyScript : MonoBehaviour
 {
+    //script que controla as camadas de nuvens para criar o efeito de paralaxe
+
     private Material skyMaterial;
     private Vector2 movement;
     public float speed;

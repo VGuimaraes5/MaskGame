@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class MaskScript : MonoBehaviour
 {
+    //controle das ações da mascara arremessada
+
     SpriteRenderer maskRenderer;
     Animator animator;
     Rigidbody2D rb;
@@ -29,7 +31,7 @@ public class MaskScript : MonoBehaviour
         StopOnGround();        
     }
 
-    //para a mascara na calçada ao atingir a posição -5 de y
+    //para a mascara na calçada ao atingir a posição -5 de y caso não tenha atingido um alvo e se destruido
     private void StopOnGround()
     {
         if (transform.position.y <= -5.0f)

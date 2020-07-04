@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnScript : MonoBehaviour
 {
+    //Nosso objeto spawner que gera os alvos e obstáculos aleatóriamente no jogo
+
     public GameObject OldMan;
     public GameObject Corona;
     public GameObject Young;

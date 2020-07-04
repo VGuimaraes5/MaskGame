@@ -6,6 +6,9 @@ using UnityEngine.UIElements;
 
 public class MenuButtons : MonoBehaviour
 {
+    // controlador dos botões da cena menu
+
+
     public GameObject creditsPanel;
     public GameObject tutorialPanel;
 

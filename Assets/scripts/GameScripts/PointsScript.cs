@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PointsScript : MonoBehaviour
 {
+    //controlador dos textos da UI
+
+
     public Text pointsUI;
     public Text recordUI;
 

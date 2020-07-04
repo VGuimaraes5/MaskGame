@@ -7,6 +7,10 @@ public class BonusScript : MonoBehaviour
     private Animator animator;
     public float bonusTime;
     public int bonusValue;
+
+    //script para controle do objeto que mostra e temporiza o bonus pego,
+    //fizemos separado para implementar as animações e ter um controle mais específico
+
     void Start()
     {
         bonusTime = 6.0f;

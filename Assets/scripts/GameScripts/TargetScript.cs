@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class TargetScript : MonoBehaviour
 {
+    //script que controla o comportamento dos alvos passando na rua, o mesmo script foi adicionado nos 3 prefabs de cada alvo.
+    //o script foi feito de uma forma genérica que identifica em qual prefab está adicionada
+
+
     public GameObject bonus;
     private BonusScript bonusScript;
 
@@ -37,7 +41,7 @@ public class TargetScript : MonoBehaviour
         playerScript = GameObject.Find("player").GetComponent<PlayerScript>();
         bonusScript = GameObject.Find("BonusControl").GetComponent<BonusScript>();
 
-        if (gameObject.tag != "DogTag")
+        if (gameObject.tag != "DogTag") //os objetos OldMan e Young possuem diferentes skins, o cachorro é o único que não precisa dessa função
         {
             selectSkin();
         }
@@ -114,7 +118,7 @@ public class TargetScript : MonoBehaviour
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
-        if (gameObject.tag == "DogTag") transform.Rotate(0, -180, 0); //inverte sprite do cachorro para igualar com os outros
+        if (gameObject.tag == "DogTag") transform.Rotate(0, -180, 0); //inverte sprite do cachorro para igualar com os outros por ser o único que foi criado virado inicialmente para esquerda
 
             //Verifica de qual lado o Target foi espawnado direita/esquerda
             if (transform.position.x == 5.8f)

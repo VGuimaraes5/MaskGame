@@ -10,7 +10,7 @@ public class BonusDrop : MonoBehaviour
     public AudioClip bonusAudio;
     void Start()
     {
-        Random.InitState((int)System.DateTime.Now.Ticks);
+        Random.InitState((int)System.DateTime.Now.Ticks);   //iniciador de seed random
 
         bonus = GameObject.Find("BonusControl").GetComponent<BonusScript>();
     }
@@ -20,7 +20,7 @@ public class BonusDrop : MonoBehaviour
         //verifica se houve colisão com uma mascara
         if (collision.gameObject.tag == "MaskTag")
         {
-            //verifica se a mascara não esta contaminada
+            //verifica se a mascara não esta contaminada, o bônus só é gerado se a mascara estiver limpa, e for gerar pontuação positiva.
             if (!collision.gameObject.GetComponent<MaskScript>().contaminated)
             {
                 AudioSource.PlayClipAtPoint(bonusAudio, transform.position);

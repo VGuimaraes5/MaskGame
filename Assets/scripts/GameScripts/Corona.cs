@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Corona : MonoBehaviour
 {
+    //controlador exclisivo do Corona
+
+
     Rigidbody2D rb;
     public float speed = 2.0f;
 
@@ -15,7 +18,7 @@ public class Corona : MonoBehaviour
         rb.velocity = transform.position.x == 5.8f ? new Vector2(-speed, 0) : new Vector2(speed, 0);
     }
  
-    //verifica se o corona atingiu uma mascara para então se auto destruir
+    //verifica se o corona foi atingido por uma mascara para então se auto destruir
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "MaskTag")
