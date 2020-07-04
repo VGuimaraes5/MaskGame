@@ -15,13 +15,15 @@ public class PointsScript : MonoBehaviour
     {
         UpdateRecord();
 
+        //muda o texto na tela conforme a pontuação atual
         pointsUI.text = points + " POINTS";
         recordUI.text = " RECORD " + PlayerPrefs.GetInt("Record");
     }
 
-
+    //atualiza a pontuação recorde
     private void UpdateRecord()
     {
+        //
         if(points > PlayerPrefs.GetInt("Record"))
         {
             PlayerPrefs.SetInt("Record", points);

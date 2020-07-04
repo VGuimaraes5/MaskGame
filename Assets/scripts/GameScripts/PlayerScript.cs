@@ -42,20 +42,22 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+
     private void GameOver()
     {
-        Destroy(spawnObject);
-        gameObject.SetActive(false);
-        gameOverPanel.gameObject.SetActive(true);
+        Destroy(spawnObject); //destroi o spawner
+        gameObject.SetActive(false); //desativa o player
+        gameOverPanel.gameObject.SetActive(true); //ativa a tela de gameover 
     }
 
-
+    //define a movimentação do player
     private void movePlayer()
     {
         float horizontal = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         transform.Translate(horizontal, 0, 0);
     }
 
+    //delimita a area em que o jogador pode andar (a area da sacada do predio)
     private void maxPlayerMovement()
     {
         if (transform.position.x <= -3.4f || transform.position.x >= 3.0f)
@@ -65,23 +67,31 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+
     private void throwMask()
     {
+        //define o tempo q o jogador esta com a mascara na mão
         fireDelayTime += Time.deltaTime;
 
+        //se apertar espaço e o tempo do fireDelay for menor q o delay minimo (1.5 segundos) possibilita o jogador de jogar outra mascara
         if (Input.GetKeyDown("space") && fireDelayTime >= fireDalayMinimun)
         {
+            //muda a animação do player
             playerAnimator.SetTrigger("ThrowMask");
+            //invoca a mascara depois de 2 segundos
             Invoke("spawnMask", 0.2f);
+            //zera o contador do fireDelay
             fireDelayTime = 0;
         }
     }
 
+    //função que spawna a mascara
     private void spawnMask()
     {
         Instantiate(mask, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
     }
 
+    //muda os sprites dos corações de acordo com a quantidade de vida
     private void UpdateLifes()
     {
         if (lifes < 3) heart3.sprite = emptyHeart;

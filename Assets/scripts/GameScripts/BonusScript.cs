@@ -13,21 +13,29 @@ public class BonusScript : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        BonusTime();
         BonusAnimation();
     }
 
-    private void BonusAnimation()
+    private void BonusTime()
     {
         bonusTime += Time.deltaTime;
-        animator.SetInteger("Value", bonusValue);
-        animator.SetFloat("Time", bonusTime);
+        //caso o tempo seja maior que 6 segundos o bonus acaba e volta pro valor 1
         if (bonusTime >= 6.0f)
         {
             bonusValue = 1;
         }
+
     }
+
+    //muda a animação do icone de bonus de acordo com o valor e o tempo
+    private void BonusAnimation()
+    {
+        animator.SetInteger("Value", bonusValue);
+        animator.SetFloat("Time", bonusTime);  
+    }
+
 }
 

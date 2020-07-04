@@ -14,7 +14,6 @@ public class SkyScript : MonoBehaviour
         movement = skyMaterial.GetTextureOffset("_MainTex");
     }
 
-    // Update is called once per frame
     void Update()
     {
         movement.x += (speed * Time.deltaTime);

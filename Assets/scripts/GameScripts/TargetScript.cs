@@ -45,7 +45,7 @@ public class TargetScript : MonoBehaviour
         adjustMovement();
     }
 
-
+    //destroi caso saia da tela
     void OnBecameInvisible()
     {
             Destroy(gameObject);
@@ -58,24 +58,33 @@ public class TargetScript : MonoBehaviour
 
         if (collision.gameObject.tag == "MaskTag" && usingMask == false)
         {
+            //verifica se a mascara colidida esta infectada
             if (collision.gameObject.GetComponent<MaskScript>().contaminated)
             {
+                //audio de "dano", coloração avermelhada e animação de mascara infectada
                 AudioSource.PlayClipAtPoint(loseLifeAudio, transform.position);
                 maskRenderer.color = Color.red;
                 animator.SetBool("MaskInfected", true);
+
+                //o player perde uma vida
                 playerScript.lifes --;
             }
             else
             {
+                //audio de "pontuação", coloração azul, animação mascara não infectada
                 AudioSource.PlayClipAtPoint(pointAudio, transform.position);
                 maskRenderer.color = Color.cyan;
                 animator.SetBool("MaskInfected", false);
+
+                //acrescenta a pontuação de acordo com o valor do Target acertado multiplicado pelo o valor do bonus
                 ptScript.points += pointValue * bonusScript.bonusValue;
 
+                //chance de spawnar um bonus 
                 SpawnBonus();
             }
-
+            //normaliza a cor
             Invoke("NormalColor", 0.2f);
+            //adiciona o boleano de usando mascara no animator e no script para true
             animator.SetBool("Mask", true);
             usingMask = true;
             //destroi a mascara
@@ -83,8 +92,10 @@ public class TargetScript : MonoBehaviour
         }
     }
 
+
     private void SpawnBonus()
     {
+        //adiciona uma chance de 20% de instanciar um bonus no local em que o objeto foi acertado
         float bonusChance = Random.Range(0.0f, 100.0f);
         if (bonusChance < 20.0f)
         {

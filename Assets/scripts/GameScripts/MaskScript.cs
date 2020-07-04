@@ -29,13 +29,14 @@ public class MaskScript : MonoBehaviour
         StopOnGround();        
     }
 
-
+    //para a mascara na calçada ao atingir a posição -5 de y
     private void StopOnGround()
     {
         if (transform.position.y <= -5.0f)
         {
             rb.velocity = new Vector2(0, 0);
             animator.SetBool("MaskStop", true);
+            //destroi o objeto dps de 1.5 segundos parado 
             Destroy(gameObject, 1.5f);
         }
     }
@@ -43,7 +44,7 @@ public class MaskScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {   
-        // caso haja colisao com o corona ela fica infectada 
+        // caso haja colisao com o corona ela ficara infectada 
         if (collision.gameObject.tag == "CoronaTag")
         {
             maskRenderer.color = Color.green;

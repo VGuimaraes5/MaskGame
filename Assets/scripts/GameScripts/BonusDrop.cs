@@ -17,12 +17,16 @@ public class BonusDrop : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //verifica se houve colisão com uma mascara
         if (collision.gameObject.tag == "MaskTag")
         {
+            //verifica se a mascara não esta contaminada
             if (!collision.gameObject.GetComponent<MaskScript>().contaminated)
             {
                 AudioSource.PlayClipAtPoint(bonusAudio, transform.position);
+                //define o tempo do bonus como 0
                 bonus.bonusTime = 0.0f;
+                //atribui um valor pro bonus com uma chance de 5% para 10x, 25% para 5x e 70% para 2x
                 bonusMultiplierChance = Random.Range(0.0f, 100.0f);
                 if (bonusMultiplierChance < 5.0f)
                 {
@@ -37,7 +41,7 @@ public class BonusDrop : MonoBehaviour
                     bonus.bonusValue = 2;
                 }
             }
-            
+            //destroy o objeto
             Destroy(gameObject);
         }
         
