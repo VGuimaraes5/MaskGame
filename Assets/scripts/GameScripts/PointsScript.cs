@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +9,8 @@ public class PointsScript : MonoBehaviour
     //controlador dos textos da UI
 
 
-    public Text pointsUI;
-    public Text recordUI;
+    public TMP_Text pointsUI;
+    public TMP_Text recordUI;
 
     public int points = 0;
 
