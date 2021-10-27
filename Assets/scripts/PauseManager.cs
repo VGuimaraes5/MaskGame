@@ -15,6 +15,8 @@ public class PauseManager : MonoBehaviour
     public Button resumeButton;
     public Button restartButton;
     public Button quitButton;
+    public Button GOrestartButton;
+    public Button GOquitButton;
 
     [Header("Panel")]
     public GameObject m_Panel;
@@ -42,12 +44,17 @@ public class PauseManager : MonoBehaviour
             SceneManager.LoadScene(m_QuitSceneName);
         });
 
-        quitButton.onClick.AddListener(() => {
+        GOquitButton.onClick.AddListener(() => {
             Hide();
             SceneManager.LoadScene(m_QuitSceneName);
         });
 
         restartButton.onClick.AddListener(() => {
+            Hide();
+            SceneManager.LoadScene(m_RestartSceneName);
+        });
+
+        GOrestartButton.onClick.AddListener(() => {
             Hide();
             SceneManager.LoadScene(m_RestartSceneName);
         });
