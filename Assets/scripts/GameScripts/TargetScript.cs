@@ -11,17 +11,13 @@ public class TargetScript : MonoBehaviour
     public GameObject bonus;
     private BonusScript bonusScript;
 
-
     private SpriteRenderer maskRenderer;
     public bool usingMask = false;
-    
 
     private Animator animator;
 
-
     private PlayerScript playerScript;
     private PointsScript ptScript;
-
     
     public int pointValue;
     public float speed;
@@ -52,7 +48,7 @@ public class TargetScript : MonoBehaviour
     //destroi caso saia da tela
     void OnBecameInvisible()
     {
-            Destroy(gameObject);
+        Destroy(gameObject);
     }
 
 
@@ -122,16 +118,17 @@ public class TargetScript : MonoBehaviour
 
             //Verifica de qual lado o Target foi espawnado direita/esquerda
             if (transform.position.x == 5.8f)
-        {
-            // Caso o spawn seja na direita, rotaciona a sprite 180º em Y e inverte velocidade para movimentar para a esquerda
-            transform.Rotate(0, 180, 0);
-            rb.velocity = new Vector2(-speed, 0);
-        }
-        else
-        {
-            // Caso o spawn seja na esquerda, sprite mantem e velocidade eh ajustada para movimentar para direita
-            rb.velocity = new Vector2(speed, 0);
-        }
+            {
+                // Caso o spawn seja na direita, rotaciona a sprite 180º em Y e inverte velocidade para movimentar para a esquerda
+                transform.Rotate(0, 180, 0);
+                rb.velocity = new Vector2(-speed, 0);
+            }
+            else
+            {
+                // Caso o spawn seja na esquerda, sprite mantem e velocidade eh ajustada para movimentar para direita
+                rb.velocity = new Vector2(speed, 0);
+           
+            }
     }
 
     void selectSkin()

@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PointsScript : MonoBehaviour
 {
     //controlador dos textos da UI
 
 
-    public Text pointsUI;
-    public Text recordUI;
+    public TextMeshProUGUI pointsUI;
+    public TextMeshProUGUI recordUI;
 
     public int points = 0;
 

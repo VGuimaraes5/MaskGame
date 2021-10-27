@@ -10,17 +10,17 @@ public class ButtonsScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey("escape"))
-        {
-            SceneManager.LoadScene("Menu");
-        }
+        //if (Input.GetKey("escape"))
+     //   {
+           // SceneManager.LoadScene("Menu");
+      //  }
     }
 
 
-    public void OnClickBackMenu()
-    {
-        SceneManager.LoadScene("Menu");
-    }
+   // public void OnClickBackMenu()
+    //{
+     //   SceneManager.LoadScene("Menu");
+    //}
 
 
 }
