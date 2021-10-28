@@ -1,0 +1,35 @@
+﻿{
+    "teams" : [
+	{
+            "career" : "Credits",
+            "names" : [
+		"",
+		""
+            ] 
+        },
+        {
+            "career" : "2d Artist",
+            "names" : [
+		"",
+		"Gabriel Nalin Gibin",
+                "Vinicius Guimaraes"
+            ] 
+        },
+        {
+            "career" : "Programming",
+            "names" : [
+		"",
+                "Gabriel Nalin Gibin",
+                "Vinicius Guimaraes"
+            ] 
+        },
+        {
+            "career" : "Beta Testers",
+            "names" : [
+		"",
+                "Gabriel Nalin Gibin",
+                "Vinicius Guimaraes"
+            ] 
+        }
+    ]
+}

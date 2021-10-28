@@ -13,6 +13,7 @@ public class MenuButtons : MonoBehaviour
     public GameObject tutorialPanel;
 
 
+
     private void Update()
     {
         if (Input.GetKey("escape"))
@@ -21,10 +22,11 @@ public class MenuButtons : MonoBehaviour
         }
     }
 
-    public void OnClickStart()
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene(sceneName);
     }
+
     public void OnClickCredits()
     {
         creditsPanel.gameObject.SetActive(true);
