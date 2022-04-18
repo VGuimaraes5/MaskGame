@@ -990,7 +990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mask: {fileID: 6841896094730444683, guid: 3bb048125ddec09459beb6d4f9c4d3f6, type: 3}
-  speed: 5
+  speed: 10
   fireDalayMinimun: 1.5
   emptyHeart: {fileID: 21300000, guid: ec65559cc20392645b828154d274dc4e, type: 3}
   heart1: {fileID: 501492097}
@@ -1001,6 +1001,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 4478923809402933729}
   spawnObject: {fileID: 250823534}
   gameOverAudio: {fileID: 8300000, guid: 680ed4e46f90a85469d64308da50c44b, type: 3}
+  horizMovement: 0
 --- !u!95 &1138410142
 Animator:
   serializedVersion: 3

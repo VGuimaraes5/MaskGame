@@ -477,7 +477,7 @@ MonoBehaviour:
   m_CareerSize: 42
   m_NameSize: 24
   m_SpaceSize: 50
-  m_ScrollSpeed: 4
+  m_ScrollSpeed: 2
   m_CapitalizeCareer: 1
   m_TextUI: {fileID: 2082801127}
 --- !u!4 &1414229293

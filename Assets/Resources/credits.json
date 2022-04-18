@@ -1,35 +1,50 @@
 ﻿{
     "teams" : [
-	{
+	    {
             "career" : "Credits",
             "names" : [
-		"",
-		""
+		        "",
+		        ""
             ] 
         },
         {
-            "career" : "2d Artist",
+            "career" : "Level Design",
             "names" : [
-		"",
-		"Gabriel Nalin Gibin",
-                "Vinicius Guimaraes"
-            ] 
+		        "",
+		        "Adham Branco Vieira Leite",
+                "Henrique Moriggi"
+            ]
         },
         {
             "career" : "Programming",
             "names" : [
-		"",
-                "Gabriel Nalin Gibin",
+		        "",
+                "Giovanni Paro da Cunha",
                 "Vinicius Guimaraes"
             ] 
         },
         {
             "career" : "Beta Testers",
             "names" : [
-		"",
-                "Gabriel Nalin Gibin",
+		        "",
+		        "Adham Branco Vieira Leite",
+                "Giovanni Paro da Cunha",
+                "Henrique Moriggi",
                 "Vinicius Guimaraes"
             ] 
+        },
+        {
+            "career" : "Special Thanks",
+            "names" : [
+                ""
+            ]
+        },
+        {
+            "career" : "2d Artist",
+            "names" : [
+		        "",
+		        "Gabriel Nalin Gibin"
+            ]
         }
     ]
 }

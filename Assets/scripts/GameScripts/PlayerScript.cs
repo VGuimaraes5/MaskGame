@@ -9,7 +9,7 @@ public class PlayerScript : MonoBehaviour
     //controles do jogador
 
     public GameObject mask;
-    public float speed = 5.0f;
+    public float speed = 10.0f;
     private float fireDelayTime = 1.0f;
     public float fireDalayMinimun = 1.5f;
     public Sprite emptyHeart;
@@ -26,6 +26,13 @@ public class PlayerScript : MonoBehaviour
 
     public AudioClip gameOverAudio;
 
+    public enum MobileHorizMovement
+    {
+        Accelerometer,
+        ScreenTouch
+    }
+
+    public MobileHorizMovement horizMovement = MobileHorizMovement.Accelerometer;
 
     void Start()
     {
@@ -58,8 +65,16 @@ public class PlayerScript : MonoBehaviour
     //define a movimentação do player
     private void movePlayer()
     {
+#if UNITY_STANDALONE || UNITY_WEBPLAYER || UNITY_EDITOR
         float horizontal = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         transform.Translate(horizontal, 0, 0);
+#elif UNITY_IOS || UNITY_ANDROID
+        if (horizMovement == MobileHorizMovement.Accelerometer)
+        {
+            float horizontal = Input.acceleration.x * speed * Time.deltaTime;
+            transform.Translate(horizontal, 0, 0);
+        }
+#endif
     }
 
     //delimita a area em que o jogador pode andar (a area da sacada do predio)
@@ -78,6 +93,7 @@ public class PlayerScript : MonoBehaviour
         //define o tempo q o jogador esta com a mascara na mão
         fireDelayTime += Time.deltaTime;
 
+#if UNITY_STANDALONE || UNITY_WEBPLAYER || UNITY_EDITOR
         //se apertar espaço e o tempo do fireDelay for menor q o delay minimo (1.5 segundos) possibilita o jogador de jogar outra mascara
         if (Input.GetKeyDown("space") && fireDelayTime >= fireDalayMinimun)
         {
@@ -88,6 +104,17 @@ public class PlayerScript : MonoBehaviour
             //zera o contador do fireDelay
             fireDelayTime = 0;
         }
+#elif UNITY_IOS || UNITY_ANDROID
+        if (Input.touchCount > 0 && fireDelayTime >= fireDalayMinimun)
+        {
+            //muda a animação do player
+            playerAnimator.SetTrigger("ThrowMask");
+            //invoca a mascara depois de 2 segundos
+            Invoke("spawnMask", 0.2f);
+            //zera o contador do fireDelay
+            fireDelayTime = 0;
+        }
+#endif
     }
 
     //função que spawna a mascara, fizemos separado da função de jogar a mascara, pois precisavamos adicionar um delay com o Invoke para encaixar na animação da mão no player
