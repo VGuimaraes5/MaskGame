@@ -22,7 +22,7 @@ public class PointsScript : MonoBehaviour
 
         //muda o texto na tela conforme a pontuação atual
         pointsUI.text = points + " POINTS";
-        recordUI.text = " RECORD " + PlayerPrefs.GetInt("Record");
+        recordUI.text = "RECORD " + PlayerPrefs.GetInt("Record");
     }
 
     //atualiza a pontuação recorde
